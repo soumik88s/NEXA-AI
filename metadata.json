@@ -1,0 +1,6 @@
+{
+  "name": "NEXA AI",
+  "description": "Universal AI workspace: chat, deep research, global dataset discovery, file intelligence, and data analysis in one unified platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

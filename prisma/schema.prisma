@@ -1,0 +1,245 @@
+// NEXA AI Prisma Schema
+// PostgreSQL architecture with full entity relations
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               String            @id @default(uuid())
+  email            String            @unique
+  name             String
+  passwordHash     String
+  avatar           String?
+  role             String            @default("USER")
+  onboardingPurpose String?          @default("General")
+  themePreference  String            @default("dark")
+  modelPreference  String            @default("NEXA Auto")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  sessions         Session[]
+  conversations    Conversation[]
+  projects         ProjectMember[]
+  ownedProjects    Project[]         @relation("ProjectOwner")
+  files            File[]
+  researchSessions ResearchSession[]
+
+  @@index([email])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  token        String   @unique
+  userAgent    String?
+  ipAddress    String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+}
+
+model Conversation {
+  id           String          @id @default(uuid())
+  userId       String
+  projectId    String?
+  title        String          @default("New Conversation")
+  model        String          @default("NEXA Auto")
+  systemPrompt String?
+  isPinned     Boolean         @default(false)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  user         User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project      Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  messages     Message[]
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([updatedAt])
+}
+
+model Message {
+  id             String          @id @default(uuid())
+  conversationId String
+  role           String          // "user" | "assistant" | "system"
+  content        String
+  attachments    Json?           // Array of { type, url, name, size, mimeType }
+  citations      Json?           // Array of { id, title, url, snippet }
+  toolCalls      Json?           // Array of { tool, input, output, status }
+  provider       String?         // "gemini" | "dev_fallback" | "openai"
+  model          String?
+  tokensUsed     Int?
+  feedback       String?         // "like" | "dislike" | null
+  createdAt      DateTime        @default(now())
+
+  conversation   Conversation    @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  toolExecutions ToolExecution[]
+
+  @@index([conversationId])
+}
+
+model Project {
+  id          String          @id @default(uuid())
+  name        String
+  description String?
+  ownerId     String
+  status      String          @default("active") // "active" | "archived"
+  color       String?         @default("#3b82f6")
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  owner       User            @relation("ProjectOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  members     ProjectMember[]
+  conversations Conversation[]
+  files       File[]
+  datasets    Dataset[]
+  research    ResearchSession[]
+
+  @@index([ownerId])
+}
+
+model ProjectMember {
+  id        String   @id @default(uuid())
+  projectId String
+  userId    String
+  role      String   @default("viewer") // "owner" | "editor" | "viewer"
+  joinedAt  DateTime @default(now())
+
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId])
+}
+
+model File {
+  id           String   @id @default(uuid())
+  userId       String
+  projectId    String?
+  name         String
+  originalName String
+  mimeType     String
+  size         Int
+  path         String
+  extractedText String?
+  metadata     Json?
+  status       String   @default("ready") // "uploading" | "processing" | "ready" | "failed"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project      Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([projectId])
+}
+
+model Dataset {
+  id                 String          @id @default(uuid())
+  name               String
+  description        String
+  publisher          String
+  country            String?
+  region             String?
+  organization       String?
+  category           String
+  topic              String?
+  year               Int?
+  license            String?
+  format             String          // "CSV", "JSON", "GeoJSON", "Parquet", "API"
+  apiAvailable       Boolean         @default(false)
+  downloadUrl        String?
+  sourceUrl          String
+  updateFrequency    String?
+  geographicCoverage String?
+  timeCoverage       String?
+  recordCount        Int?
+  columns            Json?
+  projectId          String?
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  project            Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  sources            DatasetSource[]
+
+  @@index([category])
+  @@index([publisher])
+  @@index([country])
+}
+
+model DatasetSource {
+  id          String   @id @default(uuid())
+  datasetId   String
+  endpoint    String
+  authType    String?  // "none" | "bearer" | "apikey"
+  format      String
+  lastSynced  DateTime?
+
+  dataset     Dataset  @relation(fields: [datasetId], references: [id], onDelete: Cascade)
+
+  @@index([datasetId])
+}
+
+model ToolExecution {
+  id         String   @id @default(uuid())
+  messageId  String?
+  toolName   String
+  input      Json
+  output     Json?
+  durationMs Int?
+  status     String   @default("success") // "running" | "success" | "failed"
+  error      String?
+  createdAt  DateTime @default(now())
+
+  message    Message? @relation(fields: [messageId], references: [id], onDelete: SetNull)
+
+  @@index([messageId])
+  @@index([toolName])
+}
+
+model ResearchSession {
+  id           String           @id @default(uuid())
+  userId       String
+  projectId    String?
+  topic        String
+  query        String
+  plan         Json             // Array of research steps
+  status       String           @default("completed") // "planning" | "gathering" | "synthesizing" | "completed"
+  synthesis    String?
+  uncertainty  String?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project      Project?         @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  sources      ResearchSource[]
+
+  @@index([userId])
+  @@index([projectId])
+}
+
+model ResearchSource {
+  id                String          @id @default(uuid())
+  researchSessionId String
+  title             String
+  publisher         String
+  date              String?
+  url               String
+  excerpt           String
+  sourceType        String          // "government" | "academic" | "international_body" | "web"
+  reliability       Float           @default(0.9)
+  createdAt         DateTime        @default(now())
+
+  researchSession   ResearchSession @relation(fields: [researchSessionId], references: [id], onDelete: Cascade)
+
+  @@index([researchSessionId])
+}

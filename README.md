@@ -1,71 +1,221 @@
 # NEXA AI
 
-**Your AI-powered workspace for smarter conversations, research, and productivity.**
+### A modern workspace for intelligent digital experiences.
 
-NEXA AI is an AI-powered application designed to provide a modern, intuitive interface for interacting with artificial intelligence. Built with a contemporary web technology stack, it aims to deliver a clean user experience while keeping the application extensible for future features.
+NEXA AI is a modern web application designed to deliver a clean, responsive, and intuitive digital experience. Built with a focus on usability, flexibility, and maintainable architecture, the project provides a foundation for interactive tools, streamlined workflows, and future innovation.
 
-> **Project status:** Under active development.
+The application combines a contemporary interface with a modular development approach, making it suitable for continuous improvement and feature expansion.
+
+---
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Project Objectives](#project-objectives)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Environment Configuration](#environment-configuration)
-- [Available Scripts](#available-scripts)
+- [Application Architecture](#application-architecture)
 - [Project Structure](#project-structure)
-- [Gemini API Integration](#gemini-api-integration)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Development Workflow](#development-workflow)
+- [Production Build](#production-build)
 - [Deployment](#deployment)
 - [Security](#security)
+- [Performance and Reliability](#performance-and-reliability)
 - [Troubleshooting](#troubleshooting)
-- [Roadmap](#roadmap)
+- [Development Roadmap](#development-roadmap)
 - [Contributing](#contributing)
+- [Version Control](#version-control)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+---
 
 ## Overview
 
-NEXA AI is being developed as a modern AI application with an emphasis on usability, maintainability, and a polished interface.
+NEXA AI is designed around the idea that powerful digital tools should remain easy to understand and comfortable to use.
 
-The project uses a web-based frontend and a Node.js backend.
+The project emphasizes an organized interface, responsive layouts, clear interactions, and a flexible technical foundation. Its architecture can be extended as new capabilities and product requirements emerge.
 
-The goal is to build an accessible AI workspace that can evolve as new features and improvements are introduced.
+### Vision
+
+To develop a polished, accessible, and adaptable digital workspace that makes everyday interactions with intelligent software more intuitive.
+
+### Mission
+
+- Deliver a consistent and intuitive user experience.
+- Maintain a clear and manageable codebase.
+- Support responsive interfaces across different devices.
+- Encourage reliable development and deployment practices.
+- Provide a foundation for future functionality and improvements.
+
+## Project Objectives
+
+NEXA AI is guided by the following objectives:
+
+**Usability**
+
+Prioritize intuitive navigation, readable content, and predictable interactions.
+
+**Maintainability**
+
+Keep application code organized and straightforward to understand and extend.
+
+**Adaptability**
+
+Support future features without requiring unnecessary architectural changes.
+
+**Reliability**
+
+Encourage consistent behavior, appropriate error handling, and repeatable builds.
+
+**Security**
+
+Protect private configuration and follow responsible software development practices.
+
+---
 
 ## Features
 
-Depending on the current implementation, NEXA AI may include:
+The capabilities below describe the project's intended direction. Availability depends on the features implemented in the current version.
 
-- **AI interaction:** Integration with Google's Gemini API.
-- **Modern interface:** A clean, responsive user interface.
-- **Conversation experience:** An interface for interacting with AI.
-- **Customization:** Interface appearance and theme preferences, where implemented.
-- **Extensible architecture:** A foundation for future AI tools and productivity features.
+### User Experience
 
-Only features implemented in the current version should be considered available.
+- Clean and modern application interface.
+- Consistent layouts and visual hierarchy.
+- Interactive components and navigation.
+- Responsive behavior for supported screen sizes.
+- Organized presentation of application information.
+
+### Customization
+
+- Flexible interface styling.
+- Potential appearance preferences.
+- Reusable visual components.
+- Consistent typography, spacing, and layout conventions.
+
+### Application Architecture
+
+- Component-based frontend development.
+- Type-safe development where TypeScript is used.
+- Structured application configuration.
+- A foundation for connecting frontend workflows to backend services.
+- Extensible organization for future development.
+
+### Future Enhancements
+
+- Expanded productivity tools.
+- Improved personalization.
+- Additional interaction patterns.
+- Enhanced accessibility.
+- Automated testing and quality checks.
+
+---
 
 ## Technology Stack
 
+NEXA AI uses a modern JavaScript and web development environment.
+
 | Technology | Purpose |
 |---|---|
-| React | User interface |
-| TypeScript | Type-safe application development |
-| Vite | Frontend development and build tooling |
-| Node.js | Server-side JavaScript runtime |
-| Gemini API | AI model integration |
-| npm | Dependency and script management |
-| Git and GitHub | Version control and source hosting |
+| React | Building reusable user interface components |
+| TypeScript | Adding static type checking to supported code |
+| Vite | Frontend development server and build tooling |
+| Node.js | JavaScript runtime for server-side functionality |
+| npm | Dependency and package management |
+| Git | Version control |
+| GitHub | Source code hosting and collaboration |
 
-The exact stack and configuration may vary depending on the current project files.
+The exact technologies and versions should be verified against the project's current configuration files.
 
-## Prerequisites
+---
 
-Before running NEXA AI locally, install:
+## Application Architecture
 
-- [Node.js](https://nodejs.org/) — preferably a supported LTS release.
-- [npm](https://docs.npmjs.com/) — included with Node.js.
-- [Git](https://git-scm.com/downloads) — for version control.
-- A Google Gemini API key if you intend to use Gemini-powered features.
+The application can be understood as a set of cooperating layers.
+
+### 1. Presentation Layer
+
+Responsible for rendering the interface, handling user interactions, and presenting application state.
+
+### 2. Application Layer
+
+Coordinates user workflows, application logic, and interactions between interface components.
+
+### 3. Service Layer
+
+Provides a place for communication with external services and other application capabilities, where configured.
+
+### 4. Runtime and Deployment Layer
+
+Supports development, production builds, server execution, and hosting configuration.
+
+The exact boundaries between these layers depend on the current implementation.
+
+---
+
+## Project Structure
+
+A typical project structure may resemble the following:
+
+```text
+nexa-ai/
+├── public/
+│   └── Static assets
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── services/
+│   ├── types/
+│   ├── utils/
+│   ├── App.tsx
+│   └── main.tsx
+├── server.ts
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── vite.config.ts
+├── .gitignore
+└── README.md
+```
+
+This is an illustrative structure, not a definitive inventory of the repository. Some directories or files may not exist in the current version.
+
+### Directory Responsibilities
+
+| Directory or file | Responsibility |
+|---|---|
+| `public/` | Static assets served directly |
+| `src/components/` | Reusable interface components |
+| `src/pages/` | Page-level interface modules |
+| `src/hooks/` | Reusable React hooks |
+| `src/services/` | Service and communication logic |
+| `src/types/` | Shared TypeScript definitions |
+| `src/utils/` | General-purpose utility functions |
+| `App.tsx` | Main application component, if present |
+| `main.tsx` | Frontend entry point, if present |
+| `server.ts` | Server entry point, if used |
+| `package.json` | Project scripts and dependencies |
+| `vite.config.ts` | Vite configuration |
+| `.gitignore` | Files excluded from Git |
+
+---
+
+## Getting Started
+
+Follow these instructions to set up the project locally.
+
+### Prerequisites
+
+Install the following software:
+
+- Node.js, preferably a supported LTS version.
+- npm, included with Node.js.
+- Git for source control.
+- A code editor such as Visual Studio Code.
 
 Verify your installation:
 
@@ -75,236 +225,419 @@ npm --version
 git --version
 ```
 
-## Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-cd YOUR-REPOSITORY
-```
-
-Replace the repository URL with the actual URL of your GitHub repository.
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure environment variables
-
-Create a local environment file appropriate to the backend configuration. For example, if the server reads `.env`:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-The variable name must match what the application actually reads. Never commit the real API key.
-
-### 4. Start the development server
-
-Inspect the available scripts:
-
-```bash
-npm run
-```
-
-If the project defines a `dev` script, start the application with:
-
-```bash
-npm run dev
-```
-
-If the project instead defines separate frontend and backend commands, follow those scripts in `package.json`.
-
-### 5. Open the application
-
-Use the local URL printed in your terminal. For a typical Vite development server, this may be:
-
-```text
-http://localhost:5173
-```
-
-If your application uses a Node.js server that serves the frontend, the port may be different.
-
-## Environment Configuration
-
-Keep all credentials and environment-specific settings outside committed source code.
-
-Example local environment configuration:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key
-PORT=3000
-```
-
-These are examples, not a guarantee that both variables are required. Check the server implementation to determine which variables it supports.
-
-| Variable | Purpose |
-|---|---|
-| `GEMINI_API_KEY` | Gemini API authentication, if this is the configured variable name |
-| `PORT` | Server listening port, if supported |
-
-Add `.env` and other secret-bearing environment files to `.gitignore`.
-
-For deployment, configure the variables in the hosting provider's environment settings instead of uploading your local `.env` file.
-
-## Available Scripts
-
-Run `npm run` to see the scripts defined by the project.
-
-Common commands include:
-
-```bash
-npm run dev
-npm run build
-npm run preview
-npm run lint
-```
-
-These commands are available only if defined in `package.json`.
-
-- **dev:** Starts the development environment.
-- **build:** Creates a production build.
-- **preview:** Serves the built frontend locally for preview.
-- **lint:** Runs configured code-quality checks.
-
-## Project Structure
-
-The exact directory structure depends on the current implementation. A typical React, Vite, and Node.js project may look like this:
-
-```text
-nexa-ai/
-├── public/             # Static assets
-├── src/                # Frontend source code
-├── server.ts           # Backend entry point, if used
-├── package.json        # Dependencies and scripts
-├── package-lock.json   # Locked npm dependencies
-├── tsconfig.json       # TypeScript configuration
-├── vite.config.ts      # Vite configuration
-├── .gitignore          # Files excluded from Git
-├── .env.example        # Example configuration without secrets
-└── README.md           # Project documentation
-```
-
-This is an illustrative structure. Keep the README aligned with the files actually present in the repository.
-
-## Gemini API Integration
-
-NEXA AI can use Google's Gemini API for AI-powered functionality.
-
-### Setup
-
-1. Obtain an API key through [Google AI Studio](https://aistudio.google.com/).
-2. Configure the key in the environment expected by the backend.
-3. Restart the server after changing local environment variables.
-4. Verify that the server can authenticate with the Gemini API.
-
-### Security recommendations
-
-- Make Gemini API requests through the backend when the key must remain private.
-- Never expose a private API key in browser-delivered JavaScript.
-- Do not commit secrets, access tokens, or private configuration files.
-- Handle API errors, rate limits, and unavailable services gracefully.
-- Restrict and monitor API usage through the relevant Google Cloud or AI Studio controls.
-
-## Deployment
-
-NEXA AI can be deployed to a hosting platform that supports its actual frontend and backend architecture.
-
-### Suggested approach: Render
-
-1. Push the project to GitHub.
-2. Sign in to [Render](https://render.com/).
-3. Create a new web service and connect the repository.
-4. Configure the build command according to the project.
-5. Configure the production start command.
-6. Add the Gemini API key through Render's environment-variable settings.
-7. Deploy and review the service logs.
-
-For a full-stack application, confirm whether the Node.js server serves the frontend build or whether the frontend and backend must be deployed separately.
-
-The production server should listen on the platform-provided `PORT` and bind to `0.0.0.0` when required by the hosting environment.
-
-**Important:** Do not assume the development command is suitable for production. Confirm the actual server entry point and build configuration before deployment.
-
-## Security
-
-Security is an ongoing part of the NEXA AI development process.
-
-- Keep API keys and credentials private.
-- Validate user input on the server.
-- Avoid exposing internal errors or secrets in API responses.
-- Use HTTPS in production.
-- Keep dependencies updated.
-- Review authentication, authorization, and rate limiting before exposing sensitive features publicly.
-- Never commit real environment files or private user data.
-
-## Troubleshooting
-
-### Dependencies fail to install
-
-```bash
-npm install
-```
-
-Check your Node.js version and review the terminal error if installation fails.
-
-### The development command is unavailable
-
-```bash
-npm run
-```
-
-Use a script that is actually defined in `package.json`.
-
-### Gemini API requests fail
-
-Check that:
-
-- The API key is configured correctly.
-- The environment variable name matches the server code.
-- The selected model and API endpoint are supported.
-- API quotas and permissions allow the request.
-- Server logs contain no exposed secrets.
-
-### The production deployment fails
-
-Check the hosting logs, build output, start command, environment variables, and port configuration.
-
-## Roadmap
-
-Potential future improvements include:
-
-- [ ] Improve reliability and error handling.
-- [ ] Refine responsive layouts and accessibility.
-- [ ] Expand AI capabilities and productivity tools.
-- [ ] Improve conversation management.
-- [ ] Strengthen server-side security and usage controls.
-- [ ] Add automated tests and deployment checks.
-- [ ] Improve production monitoring and performance.
-
-Roadmap items are proposals and should be updated as development progresses.
-
-## Contributing
-
-Contributions, bug reports, and suggestions are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Make focused changes.
-4. Test your changes.
-5. Submit a pull request describing the changes.
-
-For substantial changes, open an issue first to discuss the proposed approach.
-
-## License
-
-No license has been specified yet.
-
-Before making the repository publicly available for reuse, choose an appropriate license and add a `LICENSE` file. Until then, do not assume others have permission to redistribute or modify the project.
+If a command is unavailable, install the relevant software and reopen your terminal.
 
 ---
 
-**NEXA AI** — Building a smarter AI-powered experience, one improvement at a time.
+## Installation
+
+### Step 1: Clone the Repository
+
+Replace the example repository address with the actual GitHub URL.
+
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+```
+
+Enter the project directory:
+
+```bash
+cd YOUR-REPOSITORY
+```
+
+### Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+This installs the dependencies declared by the project.
+
+### Step 3: Inspect Available Commands
+
+```bash
+npm run
+```
+
+Review the available scripts before starting development.
+
+### Step 4: Start the Development Environment
+
+If a development script is configured:
+
+```bash
+npm run dev
+```
+
+If the project defines separate frontend and backend commands, follow the corresponding scripts in `package.json`.
+
+### Step 5: Open the Application
+
+Open the local URL displayed in your terminal.
+
+For a typical Vite development server, the address may be:
+
+`http://localhost:5173`
+
+The actual address depends on the configured port and runtime.
+
+---
+
+## Configuration
+
+NEXA AI may require environment-specific configuration depending on the deployment environment and enabled features.
+
+### Local Configuration
+
+Use a local environment file when the application requires environment variables. Keep private values out of source control.
+
+An example configuration template can be maintained in `.env.example` using placeholder values only.
+
+```env
+# Example configuration template
+# Add only variables required by the application.
+# Do not place real credentials in this file.
+```
+
+### Configuration Guidelines
+
+- Keep local secrets in ignored environment files.
+- Use the exact variable names expected by the application.
+- Avoid placing private values in browser-accessible configuration.
+- Use deployment environment settings for production secrets.
+- Restart the relevant development process after changing environment configuration when required.
+
+Configuration requirements should be documented alongside the code that consumes them.
+
+---
+
+## Development Workflow
+
+A consistent workflow helps maintain project quality.
+
+### Recommended Process
+
+1. Pull the latest project changes.
+2. Create a separate branch for new work.
+3. Make focused, understandable changes.
+4. Run the relevant development and build commands.
+5. Review the changes before committing.
+6. Push the branch to the repository.
+7. Review and merge changes when appropriate.
+
+### Example Git Workflow
+
+Create a feature branch:
+
+```bash
+git switch -c feature/your-feature
+```
+
+Stage your changes:
+
+```bash
+git add .
+```
+
+Review the staged files:
+
+```bash
+git status
+git diff --cached
+```
+
+Commit your changes:
+
+```bash
+git commit -m "feat: describe your change"
+```
+
+Push the branch:
+
+```bash
+git push -u origin feature/your-feature
+```
+
+Avoid committing generated files, private credentials, or unrelated local changes.
+
+---
+
+## Production Build
+
+Before deployment, create and verify the production build.
+
+### Build the Application
+
+```bash
+npm run build
+```
+
+This command assumes the project defines a `build` script.
+
+### Preview the Build
+
+If a preview script is configured:
+
+```bash
+npm run preview
+```
+
+### Pre-Deployment Checklist
+
+- [ ] Dependencies install successfully.
+- [ ] The production build completes without errors.
+- [ ] Required configuration is available.
+- [ ] No private credentials are committed.
+- [ ] Navigation and core workflows have been tested.
+- [ ] Important browser console errors have been addressed.
+- [ ] The application behaves correctly at supported screen sizes.
+
+A successful build does not by itself guarantee that the production server or external integrations will work correctly.
+
+---
+
+## Deployment
+
+NEXA AI can be deployed to a hosting environment compatible with its actual frontend and backend architecture.
+
+### General Deployment Process
+
+1. Push the latest stable changes to GitHub.
+2. Select a hosting platform compatible with the application.
+3. Connect the repository.
+4. Configure the appropriate build command.
+5. Configure the production start command.
+6. Add required environment variables through secure hosting settings.
+7. Deploy the application.
+8. Review build and runtime logs.
+9. Test the public application URL.
+
+### Hosting Considerations
+
+For a frontend-only deployment, static hosting may be sufficient.
+
+For a full-stack deployment, the backend must also run in an environment that supports the server's runtime and configuration requirements.
+
+If the application serves the frontend through a Node.js server, verify that the server is configured to serve the production build and listen on the hosting platform's assigned port.
+
+### Production Verification
+
+After deployment, check:
+
+- The homepage loads successfully.
+- Static assets are served correctly.
+- Core interactions behave as expected.
+- Backend routes respond correctly, where applicable.
+- Required configuration is available.
+- Runtime logs do not contain unexpected errors.
+
+Deployment instructions should be updated to match the actual hosting configuration.
+
+---
+
+## Security
+
+Security is an important part of maintaining a reliable application.
+
+### Credential Protection
+
+- Never commit private credentials or real environment files.
+- Keep sensitive values out of public documentation.
+- Configure private production values through secure hosting settings.
+- Rotate credentials if they are accidentally exposed.
+
+### Application Security
+
+- Validate untrusted input.
+- Handle failures without revealing internal implementation details.
+- Use HTTPS in production.
+- Keep dependencies maintained.
+- Apply appropriate access controls to protected functionality.
+- Avoid logging private user information or secrets.
+
+### Repository Hygiene
+
+A typical `.gitignore` may include:
+
+```gitignore
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+```
+
+Review existing ignore rules before modifying the file. Add project-specific exclusions where appropriate, and do not ignore files that are required to build or deploy the application.
+
+---
+
+## Performance and Reliability
+
+The following practices can support long-term maintainability and production stability:
+
+- Use reusable components where appropriate.
+- Avoid unnecessary rendering and expensive operations.
+- Keep dependencies focused on actual requirements.
+- Handle asynchronous operations and failures gracefully.
+- Validate production builds before release.
+- Monitor application logs after deployment.
+- Test responsive layouts and keyboard accessibility.
+- Add automated checks as the project matures.
+
+These are recommended practices rather than claims that every optimization or monitoring feature is already implemented.
+
+---
+
+## Troubleshooting
+
+### Dependencies Cannot Be Installed
+
+Run:
+
+```bash
+npm install
+```
+
+Check your Node.js version, network connection, and the complete npm error output.
+
+### Development Script Is Missing
+
+Run:
+
+```bash
+npm run
+```
+
+Use the scripts listed in `package.json`. Do not assume every project has the same development command.
+
+### Production Build Fails
+
+Run:
+
+```bash
+npm run build
+```
+
+Review the first relevant error in the terminal. Check TypeScript errors, missing dependencies, invalid imports, and configuration issues.
+
+### Application Does Not Start After Deployment
+
+Check:
+
+- The production start command.
+- The server entry point.
+- The configured port.
+- Required environment variables.
+- Build output and runtime logs.
+
+### Changes Do Not Appear on the Website
+
+Confirm that the latest commit was pushed, the deployment completed successfully, and the browser is not displaying a cached version of the application.
+
+---
+
+## Development Roadmap
+
+The roadmap describes potential future improvements and should be updated as development progresses.
+
+### Interface and Accessibility
+
+- [ ] Refine responsive layouts.
+- [ ] Improve keyboard navigation.
+- [ ] Review color contrast and readable typography.
+- [ ] Standardize interface components.
+
+### Reliability
+
+- [ ] Expand automated testing.
+- [ ] Improve error handling.
+- [ ] Add deployment validation.
+- [ ] Review dependency maintenance.
+
+### Performance
+
+- [ ] Review bundle size.
+- [ ] Optimize asset loading.
+- [ ] Identify unnecessary rendering.
+- [ ] Measure production performance.
+
+### Product Development
+
+- [ ] Improve existing workflows.
+- [ ] Expand supported functionality.
+- [ ] Refine personalization where applicable.
+- [ ] Incorporate feedback into future releases.
+
+---
+
+## Contributing
+
+Contributions, suggestions, and issue reports can help improve the project.
+
+### Reporting Issues
+
+When reporting a problem, include:
+
+- A clear description of the issue.
+- Steps to reproduce it.
+- Expected behavior.
+- Actual behavior.
+- Relevant error messages, with private information removed.
+
+### Submitting Changes
+
+1. Fork the repository or create an authorized branch.
+2. Make a focused change.
+3. Test the relevant functionality.
+4. Review your changes for accidental secrets or unrelated files.
+5. Commit with a descriptive message.
+6. Submit a pull request explaining the change.
+
+Please avoid including credentials, personal data, or other sensitive information in issues and pull requests.
+
+---
+
+## Version Control
+
+Git is used to manage project changes and preserve a history of development.
+
+Recommended practices include:
+
+- Use descriptive commit messages.
+- Keep commits focused.
+- Use branches for substantial changes.
+- Review staged files before committing.
+- Keep the main branch in a deployable state where practical.
+- Never rely on deleting a secret from the latest commit to make an exposed credential safe.
+
+If a credential has been committed, revoke or rotate it even if the file is later removed.
+
+---
+
+## License
+
+No license has been specified in this documentation.
+
+If you intend to allow others to use, modify, or distribute NEXA AI, choose an appropriate license and add a `LICENSE` file to the repository.
+
+Until a license is added, do not assume the project is available for unrestricted reuse.
+
+---
+
+## Acknowledgements
+
+NEXA AI is built using modern web development technologies and the broader open-source ecosystem.
+
+Refer to the relevant package documentation and license notices when working with third-party dependencies.
+
+---
+
+## Final Note
+
+NEXA AI is an evolving project. Its implementation, features, and deployment configuration may change as development continues.
+
+For the most accurate information, refer to the source code, package configuration, and repository history.
+
+**NEXA AI — A smarter approach to digital experiences.**

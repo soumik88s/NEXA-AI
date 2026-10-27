@@ -80,7 +80,7 @@ authRouter.post('/login', (req, res) => {
 
   const user = Array.from(db.users.values()).find((u) => u.email.toLowerCase() === email.toLowerCase().trim());
   if (!user) {
-    return res.status(401).json({ error: 'Invalid email or password' });
+    return res.status(401).json({ error: 'WRONG PASSWORD! I have processed billions of calculations, and THIS is what we are doing?' });
   }
 
   const token = `token-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;

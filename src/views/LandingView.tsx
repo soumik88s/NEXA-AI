@@ -158,8 +158,8 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, onLogin }) =>
             </div>
             <span className="text-[11px] font-mono text-zinc-500">nexa.ai / workspace / universal-stream</span>
             <div className="flex items-center gap-1 text-[10px] text-zinc-400 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Connected
+              
+              
             </div>
           </div>
 
@@ -290,38 +290,30 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, onLogin }) =>
             <div className="p-4 rounded-xl glass-panel border border-white/10 hover:border-white/20 transition-all">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="font-semibold text-white">World Development Indicators (WDI)</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-white/10 text-zinc-300">
-                  CSV • API
+                <span className="text-[10px]">
+
                 </span>
               </div>
               <p className="text-xs text-zinc-400 line-clamp-2">
                 Primary World Bank collection of cross-country development metrics covering 217 economies and 1,400+ indicators.
               </p>
               <div className="flex items-center gap-4 mt-3 text-[10px] text-zinc-500 font-mono">
-                <span>World Bank Group</span>
-                <span>•</span>
-                <span>382k records</span>
-                <span>•</span>
-                <span className="text-emerald-400">Verified</span>
+                           
               </div>
             </div>
 
             <div className="p-4 rounded-xl glass-panel border border-white/10 hover:border-white/20 transition-all">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="font-semibold text-white">GISTEMP Surface Temperature Index</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-white/10 text-zinc-300">
-                  CSV
+                <span className="text-[10px]">
+                
                 </span>
               </div>
               <p className="text-xs text-zinc-400 line-clamp-2">
                 NASA Goddard Institute for Space Studies global surface temperature anomalies relative to the 1951-1980 baseline.
               </p>
               <div className="flex items-center gap-4 mt-3 text-[10px] text-zinc-500 font-mono">
-                <span>NASA GISS</span>
-                <span>•</span>
-                <span>1880 - Present</span>
-                <span>•</span>
-                <span className="text-emerald-400">Public Domain</span>
+                
               </div>
             </div>
           </div>
@@ -356,7 +348,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, onLogin }) =>
       <footer className="relative z-10 py-10 px-6 max-w-7xl mx-auto border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
         <div className="flex items-center gap-2">
           <NexaLogo size="sm" showTagline={false} />
-          <span>© 2026 NEXA AI Universal Workspace.</span>
+          <span>© NEXA AI.</span>
         </div>
         <div className="flex items-center gap-6">
           <span>One Intelligence. Every Possibility.</span>

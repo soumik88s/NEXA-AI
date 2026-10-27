@@ -96,9 +96,9 @@ export const AuthView: React.FC<AuthViewProps> = ({
             {mode === 'reset' && 'Set New Password'}
           </h2>
           <p className="text-xs text-zinc-400 mt-1">
-            {mode === 'login' && 'Enter your credentials or use Instant Demo to explore.'}
-            {mode === 'register' && 'Set up your intelligent workspace in seconds.'}
-            {mode === 'forgot' && 'Enter your verified account email to recover access.'}
+            {mode === 'login' && 'Oh, you are back! Missed your AI, huh ?'}
+            {mode === 'register' && 'New here? Donot worry, I donot bite. Usually.'}
+            {mode === 'forgot' && 'Forgot your password again? Even I have my limits.'}
             {mode === 'reset' && 'Choose a strong password to secure your account.'}
           </p>
         </div>

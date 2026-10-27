@@ -156,7 +156,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, onLogin }) =>
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
               <div className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
             </div>
-            <span className="text-[11px] font-mono text-zinc-500">nexa.ai / workspace / universal-stream</span>
+            <span className="text-[11px] font-mono text-zinc-500"></span>
             <div className="flex items-center gap-1 text-[10px] text-zinc-400 font-mono">
               
               
@@ -348,7 +348,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, onLogin }) =>
       <footer className="relative z-10 py-10 px-6 max-w-7xl mx-auto border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
         <div className="flex items-center gap-2">
           <NexaLogo size="sm" showTagline={false} />
-          <span>© NEXA AI.</span>
+          <span></span>
         </div>
         <div className="flex items-center gap-6">
           <span>One Intelligence. Every Possibility.</span>

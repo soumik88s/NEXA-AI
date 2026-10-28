@@ -316,8 +316,8 @@ export const ChatView: React.FC<ChatViewProps> = ({
                   <span>You</span>
                 ) : (
                   <span className="flex items-center gap-1.5 text-zinc-400 font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-                    NEXA AI
+                    <span className="" />
+                    
                     {msg.model && <span className="text-[10px] text-zinc-500">({msg.model})</span>}
                   </span>
                 )}
@@ -456,11 +456,11 @@ export const ChatView: React.FC<ChatViewProps> = ({
           <div className="flex flex-col items-start space-y-1.5">
             <div className="flex items-center gap-2 px-1 text-[11px] font-mono text-zinc-400 font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-              NEXA AI
-              <span className="text-[10px] text-zinc-500">Streaming tokens...</span>
+              
+              <span className="text-sm text-zinc-500">Let me cook...</span>
             </div>
 
-            <div className="rounded-2xl p-4 glass-panel text-zinc-200 border border-white/10 shadow-lg max-w-[85%]">
+            <div className="rounded">
               {streamingTools.length > 0 && (
                 <div className="space-y-2 mb-3">
                   {streamingTools.map((tc, tcIdx) => (
@@ -476,19 +476,9 @@ export const ChatView: React.FC<ChatViewProps> = ({
                   ))}
                 </div>
               )}
-
-              {streamingContent ? (
-                <MarkdownRenderer content={streamingContent} />
-              ) : (
-                <div className="flex items-center gap-2 text-xs text-zinc-400">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                  <span>Synthesizing response...</span>
-                </div>
-              )}
             </div>
           </div>
         )}
-
         <div ref={messagesEndRef} />
       </div>
 

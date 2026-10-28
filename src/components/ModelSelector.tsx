@@ -118,12 +118,6 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
         <div className="absolute left-0 mt-2 w-84 rounded-xl glass-panel p-2 z-50 shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-150">
           <div className="px-2 py-1.5 border-b border-white/5 flex items-center justify-between text-[11px] text-zinc-400">
             <span className="font-mono uppercase tracking-wider">Select Architecture</span>
-            {activeProviderName && (
-              <span className="flex items-center gap-1 text-[10px] text-zinc-400 bg-zinc-800/60 px-1.5 py-0.5 rounded">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                {activeProviderName.split(' ')[0]}
-              </span>
-            )}
           </div>
 
           <div className="mt-1 space-y-1">

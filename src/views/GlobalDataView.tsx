@@ -77,8 +77,7 @@ export const GlobalDataView: React.FC<GlobalDataViewProps> = ({ onUseInAnalysis 
       <div className="p-6 md:p-8 border-b border-white/10 bg-[#070709]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">
-            <Globe2 className="w-4 h-4" />
-            <span>GLOBAL DATA CATALOG</span>
+            <span></span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Authoritative Worldwide Datasets.
@@ -182,8 +181,8 @@ export const GlobalDataView: React.FC<GlobalDataViewProps> = ({ onUseInAnalysis 
                       {dataset.category}
                     </span>
                     <span className="flex items-center gap-1 text-emerald-400">
-                      <ShieldCheck className="w-3 h-3" />
-                      Verified
+                      
+                      
                     </span>
                   </div>
 
